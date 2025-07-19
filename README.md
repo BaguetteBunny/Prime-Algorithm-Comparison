@@ -1,4 +1,4 @@
-# Prime Sieves: A Comparative Analysis
+# Prime Sieves: A Comparative Analysis of Modern Sieving Methods
 
 This project compares four different algorithms and sieves for generating prime numbers:
 
@@ -32,7 +32,7 @@ The Sieve of Eratosthenes is an elegant algorithm which marks composite numbers 
 ---
 
 ### 3. Sieve of Sundaram
-The Sieve of Sundaram eliminates numbers the form i + 2ij + j. It operates up to `n/2` and later transforms results to get the full prime set.
+The Sieve of Sundaram eliminates numbers the form `i + 2ij + j`. It operates up to `n/2` and later transforms results to get the full prime set.
 
 - **Time Complexity:** O(n log n)
 - **Pros:** Slightly less space-intensive than Eratosthenes.
@@ -43,7 +43,7 @@ The Sieve of Sundaram eliminates numbers the form i + 2ij + j. It operates up to
 ### 4. Sieve of Atkin
 The Sieve of Atkin is a more modern approach using modular arithmetic, quadratic forms, and mathematical filters to identify primes.
 
-- **Time Complexity:** O(n / log log n) *(in theory)*
+- **Time Complexity:** O(n / log log n)
 - **Pros:** Asymptotically faster for large `n`, making it efficient for very large datasets.
 - **Cons:** Complex to implement and very slow for small inputs due to overhead.
 
@@ -93,9 +93,8 @@ One thing to point out is that I've only laid out the skeleton for this rough st
 - `sieve_sundaram.py`
 - `sieve_atkin.py`
 
-**Plot**
+**Plotting Tool & Graphs**
 - `benchmark.py`
-
 - `runtime_comparison.png`
 - `atkin_sundaram_intersection.png`
 
@@ -104,5 +103,5 @@ One thing to point out is that I've only laid out the skeleton for this rough st
 
 ## 🧠 Credits
 
-Created as a benchmark comparison tool for prime sieving algorithms. Useful for students, researchers, and algorithm enthusiasts.
+Created as a rough benchmark comparison tool for prime sieving algorithms. Useful for students, researchers, and algorithm enthusiasts.
 
