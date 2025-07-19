@@ -1,6 +1,7 @@
 from math import isqrt
 from timeit import default_timer as timer
 import matplotlib.pyplot as plt
+from typing import Callable
 
 """
 Deprecated Sieve of Eratosthenes Function
@@ -25,7 +26,7 @@ def sieve_eratosthenes(n):
     return sieve
 """
 
-def time(func, n):
+def time(func: Callable, n: int):
     start = timer()
     val = func(n)
     end = timer()
@@ -33,7 +34,7 @@ def time(func, n):
     print(f"Time taken: {time_difference:.7}s for '{func.__name__}'")
     return val, time_difference
 
-def plot(functions: list, max_degree=5):
+def plot(functions: list[Callable], max_degree: int =5):
     assert len(functions) < 10
 
     # Initialize Dictionary
@@ -75,8 +76,7 @@ def plot(functions: list, max_degree=5):
     # Show the plot
     plt.show()
 
-def sieve_trial_division(n):
-    assert isinstance(n, int)
+def sieve_trial_division(n: int):
     assert n>1
 
     primes = [2]
@@ -94,8 +94,7 @@ def sieve_trial_division(n):
             primes.append(number)
     return primes
 
-def sieve_eratosthenes(n):
-    assert isinstance(n, int)
+def sieve_eratosthenes(n: int):
     assert n>=0
 
     if n < 2:
@@ -115,8 +114,7 @@ def sieve_eratosthenes(n):
             final_primes.append(idx)
     return final_primes
 
-def sieve_sundaram(n):
-    assert isinstance(n, int)
+def sieve_sundaram(n: int):
     assert n>=0
 
     if n < 2:
@@ -143,8 +141,7 @@ def sieve_sundaram(n):
 
     return prime_list
 
-def sieve_atkin(n):
-    assert isinstance(n, int)
+def sieve_atkin(n: int):
     assert n>=0
 
     if n < 2:
@@ -199,23 +196,23 @@ def sieve_atkin(n):
     
     return prime_list
 
-def atkin_sundaram_inter(step = 10**5):
+def atkin_sundaram_inter(step: int = 10**5):
     for i in range(10**6, 10**7, step):
         if sieve_atkin(i) < sieve_sundaram(i):
             return i
 
 """
 Test out these commands:
+
+print(sieve_eratosthenes(500))
+
+time(sieve_trial_division, 1_000_000)
+time(sieve_eratosthenes, 1_000_000)
+time(sieve_sundaram, 1_000_000)
+time(sieve_atkin, 1_000_000)
+
+plot([sieve_eratosthenes, sieve_sundaram, sieve_atkin, sieve_trial_division], 7)
+plot([sieve_sundaram, sieve_atkin], 8)
+
+print(f"Sundaram < Atkin from n = {atkin_sundaram_inter():,}")
 """
-
-#print(sieve_eratosthenes(500))
-
-#time(sieve_trial_division, 1_000_000)
-#time(sieve_eratosthenes, 1_000_000)
-#time(sieve_sundaram, 1_000_000)
-#time(sieve_atkin, 1_000_000)
-
-#plot([sieve_eratosthenes, sieve_sundaram, sieve_atkin, sieve_trial_division], 7)
-#plot([sieve_sundaram, sieve_atkin], 8)
-
-#print(f"Sundaram < Atkin from n = {atkin_sundaram_inter():,}")

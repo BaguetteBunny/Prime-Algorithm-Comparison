@@ -1,5 +1,6 @@
 from timeit import default_timer as timer
 from math import isqrt, sqrt
+from typing import Callable
 
 PRIME_LIST = {
   "10^1": 7,
@@ -21,7 +22,7 @@ PRIME_LIST = {
 }
 
 # Calculating time for one set of values
-def unique_test(func, max, print_final=True, print_details=False):
+def unique_test(func: Callable, max: int, print_final: bool =True, print_details: bool = False):
     max_dict = PRIME_LIST if max == -1 else {k: PRIME_LIST[k] for k in list(PRIME_LIST)[:max]}
 
     final_start = timer()
@@ -40,7 +41,7 @@ def unique_test(func, max, print_final=True, print_details=False):
         print(f"Total time taken: {final_end-final_start:.10f}s")
 
 # Calculating average time of quantity times unique tests
-def average_test(func, max, quantity=100, return_times=False):
+def average_test(func: Callable, max: int, quantity: int = 100, return_times: bool = False):
     total_times = []
     for i in range(quantity):
         average_start = timer()
@@ -53,7 +54,7 @@ def average_test(func, max, quantity=100, return_times=False):
         return total_times
 
 # Calculating confidence interval of quantity times unique tests
-def confidence_interval(func, max, quantity=100, decimal_places=9):
+def confidence_interval(func: Callable, max: int, quantity: bool = 100, decimal_places: int = 9):
     times = average_test(func, max, quantity, return_times=True)
 
     mean = sum(times)/quantity
@@ -67,7 +68,7 @@ def confidence_interval(func, max, quantity=100, decimal_places=9):
     print(f"With 95% confidence, the true average runtime of '{func.__name__}' in seconds is within I = [{lower_bound:.{decimal_places}f} ; {upper_bound:.{decimal_places}f}]")
 
 # Classic Prime Computing
-def classic_isprime(n, _=None):
+def classic_isprime(n: int, _):
     if n <= 1:
         return False
     else:
@@ -77,7 +78,7 @@ def classic_isprime(n, _=None):
         return True
 
 # Recursive Prime Computing
-def recursive_isprime(n, i):
+def recursive_isprime(n: int, i: int):
     if i == 2:
         return True
     if n%i == False:
@@ -87,20 +88,21 @@ def recursive_isprime(n, i):
     return True
 
 """
-At 10^5, q=100_000:
-    Classic Prime: [0.0000104 ; 0.0000105]
-    Recursive Prime: [0.0000377 ; 0.0000378]
+At q=100_000:
+    Classic Prime computing time (in seconds) is between this interval [0.0000104 ; 0.0000105] at 95% confidence
+    Recursive Prime computing time (in seconds) is between this interval [0.0000377 ; 0.0000378] at 95% confidence
 """
 
 """
 Test out these commands:
+
+
+print(classic_isprime(PRIME_LIST["10^12"]))
+print(recursive_isprime(PRIME_LIST["10^13"]))
+
+unique_test(classic_isprime, -1, 1000, print_details=True)
+unique_test(recursive_isprime, -1, 1000, print_details=True)
+
+confidence_interval(classic_isprime, 5, 100_000)
+confidence_interval(recursive_isprime, 5, 100_000)
 """
-
-#print(classic_isprime(PRIME_LIST["10^12"]))
-#print(recursive_isprime(PRIME_LIST["10^13"]))
-
-#unique_test(classic_isprime, -1, 1000, print_details=True)
-#unique_test(recursive_isprime, -1, 1000, print_details=True)
-
-#confidence_interval(classic_isprime, 5, 100_000)
-#confidence_interval(recursive_isprime, 5, 100_000)
