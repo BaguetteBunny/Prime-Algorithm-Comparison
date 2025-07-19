@@ -81,6 +81,12 @@ This graph zooms in on the crossover point where the Sieve of Atkin becomes fast
 
 The best choice seems to be the sieve of Eratosthenes for all cases. However, looking at the sieve of Atkin's time complexity, we can see that it should surpass Eratosthenes at higher values. In fact, the value at which Atkin surpasses Eratosthenes is exactly n=10¹⁰. So if you are computing primes above this threshold, Atkin's the way to go!
 
+Blue represents the mathematical time complexity of Atkin, Red represents the mathematical time complexity of Eratosthenes
+<p align="center">
+  <img src="graphs/atkin_eratosthenes_intersection.png" alt="Atkin vs Eratosthenes Performance Graph" width="600">
+</p>
+
+
 One thing to point out is that I've only laid out the skeleton for this rough study. The code for all sieves are nowhere *near* as optimized. Feel free to try out your own version with numpy, bitarrays, or other solutions you may come up with!
 
 ---
@@ -97,6 +103,7 @@ One thing to point out is that I've only laid out the skeleton for this rough st
 - `benchmark.py`
 - `runtime_comparison.png`
 - `atkin_sundaram_intersection.png`
+- `atkin_eratosthenes_intersection.png`
 
 
 ---
