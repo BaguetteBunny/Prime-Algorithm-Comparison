@@ -7,7 +7,7 @@ from sieve_sundaram import *
 from sieve_eratosthenes import *
 from trial_division import *
 
-def time_wrapper(func: Callable, n: int):
+def time(func: Callable, n: int):
     start = timer()
     val = func(n)
     end = timer()
