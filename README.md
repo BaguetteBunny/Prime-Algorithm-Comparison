@@ -60,7 +60,7 @@ This graph shows the actual time (in seconds) each sieve takes for increasing va
 - **Eratosthenes** most efficient out of all.
 
 <p align="center">
-  <img src="runtime_comparison.png" alt="Runtime Comparison Graph" width="600">
+  <img src="graphs/runtime_comparison.png" alt="Runtime Comparison Graph" width="600">
 </p>
 
 ---
@@ -72,7 +72,7 @@ This graph zooms in on the crossover point where the Sieve of Atkin becomes fast
 - While the Sieve of Atkin is theoretically faster, its practical advantage only appears with very large inputs.
 
 <p align="center">
-  <img src="atkin_sundaram_intersection.png" alt="Atkin vs Sundaram Performance Graph" width="600">
+  <img src="graphs/atkin_sundaram_intersection.png" alt="Atkin vs Sundaram Performance Graph" width="600">
 </p>
 
 ---
