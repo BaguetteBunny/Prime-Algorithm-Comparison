@@ -1,5 +1,6 @@
 # Prime Sieves: A Comparative Analysis of Modern Sieving Methods
 
+This project serves as a rough benchmark comparison tool for prime sieving algorithms. Useful for students, researchers, and algorithm enthusiasts.
 This project compares four different algorithms and sieves for generating prime numbers:
 
 - **Trial Division**
@@ -108,7 +109,7 @@ One thing to point out is that I've only laid out the skeleton for this rough st
 
 ---
 
-## 🧠 Credits
+## ⚖️ License
 
-Created as a rough benchmark comparison tool for prime sieving algorithms. Useful for students, researchers, and algorithm enthusiasts.
+- [MIT](license)
 
